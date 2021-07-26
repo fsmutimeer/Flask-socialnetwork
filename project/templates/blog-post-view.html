@@ -1,0 +1,21 @@
+{%extends 'base.html'%} {%block content%}
+
+<div class="">
+
+    <h1>Written By:{{post.author.username}}</h1>
+    <h3>Published: {{post.date.strftime('%B %d,%Y')}}</h3>
+    <p>{{post.text}}</p>
+
+    {% if post.author == current_user%}
+    <div>
+        <a href="{{url_for('blog_posts.update',blog_post_id=post.id)}}">Update</a>
+        <a href="{{url_for('blog_posts.delete',blog_post_id=post.id)}}">Delete</a>
+
+    </div>
+    {%endif%}
+
+
+</div>
+
+
+{%endblock%}

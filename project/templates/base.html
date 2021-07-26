@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    .container {
+        max-width: 960px;
+        margin: 10px auto;
+    }
+    
+    nav {
+        padding: 10px;
+        background-color: rgb(150, 181, 240);
+    }
+    
+    nav ul {
+        display: flex;
+    }
+    
+    nav ul li {
+        list-style: none;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        padding: 10px;
+        transition: all .5s ease-in-out;
+    }
+    
+    nav ul li a:hover {
+        color: rgb(226, 219, 219)
+    }
+    
+    .border {
+        border: 1px solid rgb(241, 238, 238);
+        box-shadow: 2px 2px 8px rgb(216, 209, 209);
+    }
+</style>
+
+<body>
+    <nav>
+        <ul>
+
+            <li><a href="{{url_for('core.index')}}">Home</a></li>
+            <li><a href="{{url_for('core.info')}}">About</a></li>
+            {%if current_user.is_authenticated%}
+            <li><a href="{{url_for('blog_posts.create')}}">Create Post</a></li>
+            <li><a href="{{url_for('users.account')}}">Account</a></li>
+            <li><a href="{{url_for('users.logout')}}">Logout</a></li>
+            {%else%}
+            <li><a href="{{url_for('users.login')}}">Login</a></li>
+            <li><a href="{{url_for('users.register')}}">Register</a></li>
+            {%endif%}
+        </ul>
+    </nav>
+    <div class="container">
+        {%block content%} {%endblock%}
+    </div>
+</body>
+
+</html>
