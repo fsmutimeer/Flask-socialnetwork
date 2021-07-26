@@ -1,3 +1,5 @@
 # Flask-socialnetwork 
 
-## pip install the dependencies and enjoy
+## `git clone <this project>`
+
+## `pip install` the dependencies and enjoy
