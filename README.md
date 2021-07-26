@@ -1,4 +1,4 @@
-# Flask-socialnetwork 
+# Flask-social Network 
 
 ## `git clone <this project>`
 
